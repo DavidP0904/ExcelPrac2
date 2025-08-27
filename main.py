@@ -6,11 +6,11 @@ eje_x = ["A", "B", "C", "D", "E"]
 eje_y = [2, 3, 5, 7, 11]
 fig, ax = plt.subplots()
 ax.bar(eje_x, eje_y, color="blue", label="Datos de ejemplo")
-fig.savefig("generados/grafica_ejemplo.png", bbox_inches="tight")
+fig.savefig("Generados/grafica_ejemplo.png", bbox_inches="tight")
 plt.close(fig)  # Cerrar la figura para liberar memoria
 
 # Leer archivo Excel
-archivo_excel = "datos/datos_base.xlsx"
+archivo_excel = "Datos/datos_encuesta.xlsx"
 contador = 1
 while contador <= 5:
     # codigo para leer el archivo Excel
@@ -28,9 +28,10 @@ while contador <= 5:
     ax.bar(eje_x, eje_y_barras, color="green", label=f"Datos de Hoja {contador}")
     ax.set_xlabel("Eje X")
     ax.set_ylabel("Eje Y")
+    ax.set_xticks(range(len(eje_x)))
     ax.set_xticklabels(eje_x, rotation=45)
     ax.set_title(f"Gráfica de la Hoja {contador}")
-    fig.savefig(f"generados/grafica_barras_hoja_{contador}.png", bbox_inches="tight")
+    fig.savefig(f"Generados/grafica_barras_hoja_{contador}.png", bbox_inches="tight")
     plt.close(fig)  # Cerrar la figura para liberar memoria
     # Crear la gráfica de pastel
     fig, ax = plt.subplots()
@@ -39,9 +40,9 @@ while contador <= 5:
         labels=eje_x,
     )
     ax.set_title(f"Gráfica de Pastel de la Hoja {contador}")
-    fig.savefig(f"generados/grafica_pastel_hoja_{contador}.png", bbox_inches="tight")
+    fig.savefig(f"Generados/grafica_pastel_hoja_{contador}.png", bbox_inches="tight")
     plt.close(fig)  # Cerrar la figura para liberar memoria
     # Incrementar el contador
     contador = contador + 1
 
-print("Gráficas generadas y guardadas en la carpeta 'generados'.")
+print("Gráficas generadas y guardadas en la carpeta 'Generados'.")
